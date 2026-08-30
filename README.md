@@ -59,11 +59,6 @@ Metoden i Library-klassen kunne se sådan ud:
 ```
 internal void CheckOut(Book book, Borrower borrower)
 {
-    if (book.IsOnLoan)
-    {
-        throw new InvalidOperationException("Book is already on loan.");
-    }
-
     DateTime borrowDate = DateTime.Now;
     DateTime dueDate = borrowDate.AddDays(book.LoanPeriod);
 //(hvis bøger kan have forskellige låneperioder - ellers kan det bare være feks: borrowDate.AddDays(30);)
