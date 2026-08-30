@@ -51,13 +51,13 @@ I stedet for:
 `book.IsOnLoan = true;`
 
 kan man have en metode:
-`library.BorrowBook(book);`
+`library.CheckOut(book);`
 
-Borrow-metoden kan så tjekke, om bogen allerede er udlånt, og evt. smide en exception.
+CheckOut-metoden kan så tjekke, om bogen allerede er udlånt, og evt. smide en exception.
 Metoden i Library-klassen kunne se sådan ud:
 
 ```
-internal void BorrowBook(Book book, Borrower borrower)
+internal void CheckOut(Book book, Borrower borrower)
 {
     if (book.IsOnLoan)
     {
@@ -69,14 +69,14 @@ internal void BorrowBook(Book book, Borrower borrower)
 //(hvis bøger kan have forskellige låneperioder - ellers kan det bare være feks: borrowDate.AddDays(30);)
 
 
-    book.Borrow(dueDate);
+    book.CheckOut();
     _borrowedBooks.Add(new BorrowedBook(book, borrower, borrowDate, dueDate));
 }
 ```
 
 Og metoden i Book:
 ```
-internal void Borrow(DateTime dueDate)
+internal void CheckOut()
 {
     _isOnLoan = true;
     _dueDate = dueDate;    
@@ -86,7 +86,7 @@ internal void Borrow(DateTime dueDate)
 og evt. udvide metoden i Library-klassen med et tjek for, om låner har nået sin lånegrænse:
 
 ```
-internal void BorrowBook(Book book, Borrower borrower)
+internal void CheckOut(Book book, Borrower borrower)
 {
     if (book.IsOnLoan)
     {
@@ -101,7 +101,7 @@ internal void BorrowBook(Book book, Borrower borrower)
     DateTime borrowDate = DateTime.Now;
     DateTime dueDate = borrowDate.AddDays(book.LoanPeriod);
 
-    book.Borrow(dueDate);
+    book.CheckOut();
     _borrowedBooks.Add(new BorrowedBook(book, borrower, borrowDate, dueDate));
 }
 ```
@@ -170,7 +170,7 @@ Method: Return() – kan ændre isOnLoan udefra
 ### Due Date:
 Field: `private DateTime? _dueDate`  
 Property: DueDate – kan læses udefra (og kan være null)  
-Method: Borrow(DateTime dueDate) – kan ændre dueDate udefra  
+Method: CheckOut() – kan ændre dueDate udefra  
 Method: Return() – kan ændre dueDate udefra  
 
 
