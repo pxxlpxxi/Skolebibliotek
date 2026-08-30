@@ -119,89 +119,89 @@ internal int GetCurrentBorrowedCount(Borrower borrower)
 ## BOOK
 
 ### Loan Period
-Field: `private int _loanPeriod`
-Property: LoanPeriod – kan læses udefra
-Method: ChangeLoanPeriod(int loanPeriod) – kan ændre loan period udefra
+Field: `private int _loanPeriod`  
+Property: LoanPeriod – kan læses udefra  
+Method: ChangeLoanPeriod(int loanPeriod) – kan ændre loan period udefra  
 
 ### Title
-Field: `private string _title`
-Property: Title – kan læses udefra
-Method: ChangeTitle(string title) – kan ændre title udefra
+Field: `private string _title`  
+Property: Title – kan læses udefra  
+Method: ChangeTitle(string title) – kan ændre title udefra  
 
 ### Author
-Field: `private string _author`
-Property: Author – kan læses udefra
-Method: ChangeAuthor(string author) – kan ændre author udefra
+Field: `private string _author`  
+Property: Author – kan læses udefra  
+Method: ChangeAuthor(string author) – kan ændre author udefra  
 
 ### Publication Year
-Field: `private int _publicationYear`
-Property: PublicationYear – kan læses udefra
-Method: ChangePublicationYear(int publicationYear) – kan ændre publication year udefra
+Field: `private int _publicationYear`  
+Property: PublicationYear – kan læses udefra  
+Method: ChangePublicationYear(int publicationYear) – kan ændre publication year udefra  
 
 ### Genre
-Field: `private string _genre`
-Property: Genre – kan læses udefra
-Method: ChangeGenre(string genre) – kan ændre genre udefra
+Field: `private string _genre`  
+Property: Genre – kan læses udefra  
+Method: ChangeGenre(string genre) – kan ændre genre udefra  
 
 ### ISBN
-Field: `private string _isbn`
-Property: ISBN – kan læses udefra
+Field: `private string _isbn`  
+Property: ISBN – kan læses udefra  
 
 ### Number of Pages
-Field: `private int _numberOfPages`
-Property: NumberOfPages – kan læses udefra
+Field: `private int _numberOfPages`  
+Property: NumberOfPages – kan læses udefra  
 
 ### Language
-Field: `private string _language`
-Property: Language – kan læses udefra
-Method: ChangeLanguage(string language) – kan ændre language udefra
+Field: `private string _language`  
+Property: Language – kan læses udefra  
+Method: ChangeLanguage(string language) – kan ændre language udefra  
 
 ### Publisher
-Field: `private string _publisher`
-Property: Publisher – kan læses udefra
+Field: `private string _publisher`  
+Property: Publisher – kan læses udefra  
 Method: ChangePublisher(string publisher) – kan ændre publisher udefra
 
 ### Is on Loan:
 Field: `private bool _isOnLoan`     
-Property: IsOnLoan – kan læses udefra
-Method: Borrow(DateTime dueDate) – kan ændre isOnLoan udefra
-Method: Return() – kan ændre isOnLoan udefra
+Property: IsOnLoan – kan læses udefra  
+Method: Borrow(DateTime dueDate) – kan ændre isOnLoan udefra  
+Method: Return() – kan ændre isOnLoan udefra  
 
 ### Due Date:
-Field: `private DateTime? _dueDate`
-Property: DueDate – kan læses udefra (og kan være null)
-Method: Borrow(DateTime dueDate) – kan ændre dueDate udefra
-Method: Return() – kan ændre dueDate udefra
+Field: `private DateTime? _dueDate`  
+Property: DueDate – kan læses udefra (og kan være null)  
+Method: Borrow(DateTime dueDate) – kan ændre dueDate udefra  
+Method: Return() – kan ændre dueDate udefra  
 
 
 ## BORROWER
 
 ### Borrower ID
-Field: `private int _borrowerID`
-Property: BorrowerID – kan læses udefra
+Field: `private int _borrowerID`  
+Property: BorrowerID – kan læses udefra  
 
 ### Borrow Limit
-Field: `private int _maxBorrowLimit`
-Property: MaxBorrowLimit – kan læses udefra
+Field: `private int _maxBorrowLimit`  
+Property: MaxBorrowLimit – kan læses udefra  
 
 ### Name
-Field: `private string _name`
-Property: Name – kan læses udefra
-Method: ChangeName(string name) – kan ændre name udefra
+Field: `private string _name`  
+Property: Name – kan læses udefra  
+Method: ChangeName(string name) – kan ændre name udefra  
 
 ### Address
-Field: `private string _address`
-Property: Address – kan læses udefra
-Method: ChangeAddress(string address) – kan ændre address udefra
+Field: `private string _address`  
+Property: Address – kan læses udefra  
+Method: ChangeAddress(string address) – kan ændre address udefra  
 
 ### Phone Number
-Field: `private string _phoneNumber`
-Property: PhoneNumber – kan læses udefra
-Method: ChangePhoneNumber(string phoneNumber) – kan ændre phone number udefra
+Field: `private string _phoneNumber`  
+Property: PhoneNumber – kan læses udefra  
+Method: ChangePhoneNumber(string phoneNumber) – kan ændre phone number udefra  
 
 ### Email
-Field: `private string _email`
-Property: Email – kan læses udefra
+Field: `private string _email`  
+Property: Email – kan læses udefra  
 Method: ChangeEmail(string email) – kan ændre email udefra
 
 
@@ -209,35 +209,35 @@ Method: ChangeEmail(string email) – kan ændre email udefra
 ## LIBRARY
 
 ### Books
-Field: `private List<Book> _books`
-( evt. `IReadOnlyList<Book>` )
+Field: `private List<Book> _books`  
+( evt. `IReadOnlyList<Book>` )  
 Property: Books – kan læses udefra
 
 ###  Borrowers
-Field : `private List<Borrower> _borrowers`
-( evt. `IReadOnlyList<Borrower>` )
+Field : `private List<Borrower> _borrowers`  
+( evt. `IReadOnlyList<Borrower>` )  
 Property: Borrowers – kan læses udefra
 
 ###  Borrowed Books
-Field: `private List<BorrowedBook> _borrowedBooks`
-( evt. `IReadOnlyList<BorrowedBook>` )
+Field: `private List<BorrowedBook> _borrowedBooks`  
+( evt. `IReadOnlyList<BorrowedBook>` )  
 Property: BorrowedBooks – kan læses udefra
 
 
 ## BORROWED BOOK
 
 ### Book
-Field: `private Book _book`
+Field: `private Book _book`  
 Property: Book – kan læses udefra
 
 ### Borrower
-Field: `private Borrower _borrower`
+Field: `private Borrower _borrower`  
 Property: Borrower – kan læses udefra
 
 ### Borrow Date
-Field: `private DateTime _borrowDate`   
+Field: `private DateTime _borrowDate`  
 Property: BorrowDate – kan læses udefra
 
 ### Due Date
-Field: `private DateTime _dueDate`
+Field: `private DateTime _dueDate`  
 Property: DueDate – kan læses udefra (og kan være null)
