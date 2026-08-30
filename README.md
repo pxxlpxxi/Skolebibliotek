@@ -51,7 +51,7 @@ I stedet for:
 `book.IsOnLoan = true;`
 
 kan man have en metode:
-`library.CheckOut(book);`
+`library.CheckOut(book, borrower);`
 
 CheckOut-metoden kan så tjekke, om bogen allerede er udlånt, og evt. smide en exception.
 Metoden i Library-klassen kunne se sådan ud:
@@ -78,9 +78,15 @@ Og metoden i Book:
 ```
 internal void CheckOut()
 {
+    if (_isOnLoan)
+    {
+        throw new InvalidOperationException("Book is already on loan.");
+    }
+
     _isOnLoan = true;
-    _dueDate = dueDate;    
+    _dueDate = DateTime.Now.AddDays(_loanPeriod);
 }
+
 ```
 
 og evt. udvide metoden i Library-klassen med et tjek for, om låner har nået sin lånegrænse:
@@ -164,7 +170,7 @@ Method: ChangePublisher(string publisher) – kan ændre publisher udefra
 ### Is on Loan:
 Field: `private bool _isOnLoan`     
 Property: IsOnLoan – kan læses udefra  
-Method: Borrow(DateTime dueDate) – kan ændre isOnLoan udefra  
+Method: CheckOut() – kan ændre isOnLoan udefra  
 Method: Return() – kan ændre isOnLoan udefra  
 
 ### Due Date:
@@ -176,13 +182,17 @@ Method: Return() – kan ændre dueDate udefra
 
 ## BORROWER
 
-### Borrower ID
-Field: `private int _borrowerID`  
-Property: BorrowerID – kan læses udefra  
+### Borrower Number
+Field: `private int _borrowerNumber`  
+Property: BorrowerNumber – kan læses udefra  
 
 ### Borrow Limit
 Field: `private int _maxBorrowLimit`  
 Property: MaxBorrowLimit – kan læses udefra  
+
+### Borrowed Books
+Field: `private int _numberOfBooksLoaned` – kan læses udefra
+Property: NumberOfBooksLoaned – kan læses udefra
 
 ### Name
 Field: `private string _name`  
@@ -240,4 +250,4 @@ Property: BorrowDate – kan læses udefra
 
 ### Due Date
 Field: `private DateTime _dueDate`  
-Property: DueDate – kan læses udefra (og kan være null)
+Property: DueDate – kan læses udefra
