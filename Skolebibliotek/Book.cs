@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Skolebibliotek
+﻿namespace Skolebibliotek
 {
     internal class Book
     {
