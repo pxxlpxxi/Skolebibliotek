@@ -33,7 +33,7 @@
             ChangeAddress(address);
             ChangePhoneNumber(phoneNumber);
             ChangeEmail(email);
-            if (maxBorrowLimit < 0) // Allowing 0 as a valid limit, meaning the borrower cannot borrow any books
+            if (maxBorrowLimit < 0 || maxBorrowLimit > 5) //allowing 0 as a valid limit, meaning the borrower is banned from borrowing books.
             {
                 throw new ArgumentException($"Max borrow limit {maxBorrowLimit} is invalid.");
             }
