@@ -28,15 +28,25 @@
             {
                 throw new ArgumentException($"Borrower number {borrowerNumber} is invalid.");
             }
-            _borrowerNumber = borrowerNumber;
-            ChangeName(name);
-            ChangeAddress(address);
-            ChangePhoneNumber(phoneNumber);
-            ChangeEmail(email);
+            ThrowExceptionIfNullOrWhitespace(name, "Name");
+            ThrowExceptionIfNullOrWhitespace(address, "Address");
+            ThrowExceptionIfNullOrWhitespace(phoneNumber, "Phone Number");
+            ThrowExceptionIfNullOrWhitespace(email, "Email");
             if (maxBorrowLimit < 0 || maxBorrowLimit > 5) //allowing 0 as a valid limit, meaning the borrower is banned from borrowing books.
             {
                 throw new ArgumentException($"Max borrow limit {maxBorrowLimit} is invalid.");
             }
+
+            if (!int.TryParse(phoneNumber, out _))
+            {
+                throw new ArgumentException($"Invalid phone number: {phoneNumber}");
+            }
+
+            _borrowerNumber = borrowerNumber;
+            _name = name;
+            _address = address;
+            _phoneNumber = phoneNumber;
+            _email = email;
             _maxBorrowLimit = maxBorrowLimit;
             _numberOfBooksLoaned = 0;
         }
@@ -86,7 +96,14 @@
             }
             _phoneNumber = phoneNumber;
         }
-
+        internal void ChangeMaxBorrowLimit(int maxBorrowLimit)
+        {
+            if (maxBorrowLimit < 0 || maxBorrowLimit > 5)
+            {
+                throw new ArgumentException($"Max borrow limit {maxBorrowLimit} is invalid.");
+            }
+            _maxBorrowLimit = maxBorrowLimit;
+        }   
         internal void ChangeEmail(string email)
         {
             ThrowExceptionIfNullOrWhitespace(email, "Email");
