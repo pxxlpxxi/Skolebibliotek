@@ -44,7 +44,7 @@ internal void ChangeTitle(string title)
 ```
 
 
-På samme måde, kaan man kontrollere udlån af bøger, og sikre, at en bog ikke kan udlånes, hvis den allerede er udlånt,
+På samme måde, kan man kontrollere udlån af bøger, og sikre, at en bog ikke kan udlånes, hvis den allerede er udlånt,
 eller at den ikke kan returneres, hvis den ikke allerede er udlånt:
 
 I stedet for:
@@ -83,7 +83,7 @@ internal void Borrow(DateTime dueDate)
 }
 ```
 
-og evt. uvide metoden i Library-klassen med et tjek for, om låner har nået sin lånegrænse:
+og evt. udvide metoden i Library-klassen med et tjek for, om låner har nået sin lånegrænse:
 
 ```
 internal void BorrowBook(Book book, Borrower borrower)
