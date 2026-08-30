@@ -244,5 +244,5 @@ Field: `private DateTime _borrowDate`
 Property: BorrowDate – kan læses udefra
 
 ### Due Date
-Field: `private DateTime _dueDate`  
+Field: `private DateOnly _dueDate`  
 Property: DueDate – kan læses udefra
